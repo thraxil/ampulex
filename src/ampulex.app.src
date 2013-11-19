@@ -1,0 +1,14 @@
+{application, ampulex, [
+    {description, "Ampulex"},
+    {vsn, "0.1.0"},
+    {modules, []},
+    {registered, [ampulex_sup]},
+    {applications, [
+        kernel,
+        stdlib,
+        sockjs,
+        cowboy
+    ]},
+    {mod, {ampulex_app, []}},
+    {env, []}
+]}.
