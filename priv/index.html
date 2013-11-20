@@ -354,38 +354,7 @@ function linkify( selector ) {
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
-
-		<script>
-
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: false,
-        keyboard: false,
-				progress: true,
-				history: true,
-				center: true,
-        touch: false,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
-
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
-
-		</script>
+    <script src="js/follower.js"></script>
 
 		<!-- Everything below this point is unrelated to the slideshow -->
 
@@ -409,51 +378,6 @@ function linkify( selector ) {
 				document.querySelector( '.fork-reveal' ).style.display = 'block';
 			}
 		</script>
-
-    <script>
-
-      function log(m) {
-			    console.log(m);
-      }
-
-      var sockjs_url = '/echo';
-      var sockjs = new SockJS(sockjs_url);
-      sockjs.onopen = function() {
-          log(' [*] Connected (using: '+sockjs.protocol+')');
-      };
-      sockjs.onclose = function(e) {
-          log(' [*] Disconnected ('+e.status + ' ' + e.reason+ ')');
-      };
-      sockjs.onmessage = function(e) {
-          log(' [ ] received: ' + JSON.stringify(e.data));
-          switch( e.data ) {
-             case 'p': Reveal.navigatePrev(); break;
-			       case 'n': Reveal.navigateNext(); break;
-			       case 'h': Reveal.navigateLeft(); break;
-			       case 'l': Reveal.navigateRight(); break;
-			       case 'k': Reveal.navigateUp(); break;
-			       case 'j': Reveal.navigateDown(); break;
-			       case 'home': Reveal.slide(0); break;
-			       case 'end': Reveal.slide(Number.MAX_NUMBER); break;
-			       case 'space': Reveal.isOverview() ? Reveal.toggleOverview() : Reveal.navigateNext(); break;
-			       case 'return': Reveal.isOverview() ? Review.toggleOverview() : function () {}; break;
-			       case 'b': Reveal.togglePause(); break;
-			       case 'f': Reveal.enterFullscreen(); break;
-             default: log(e.data);
-          }
-      };
-
-//      $('#form').submit(function() {
-//          if (sockjs.readyState !== SockJS.OPEN) {
-//              l += ' (error, connection not established)';
-//          } else {
-//              sockjs.send(val);
-//          }
-//          return false;
-//      });
-
-    </script>
-
 
 	</body>
 </html>
