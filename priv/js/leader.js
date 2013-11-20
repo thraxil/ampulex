@@ -18,24 +18,21 @@ function shim(k, f) {
 }
 
 Reveal.initialize({
-		controls: true,
-		progress: true,
-		history: true,
-		center: true,
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
 
     keyboard: {
         // p, page up
-        // case 80: case 33: navigatePrev(); break;
-			  80: shim('p', Reveal.navigatePrev),
-			  33: shim('p', Reveal.navigatePrev),
+        80: shim('p', Reveal.navigatePrev),
+        33: shim('p', Reveal.navigatePrev),
         // n, page down -->
-        // case 78: case 34: navigateNext(); break;
-			  78: shim('n', Reveal.navigateNext),
-			  34: shim('n', Reveal.navigateNext),
+        78: shim('n', Reveal.navigateNext),
+        34: shim('n', Reveal.navigateNext),
         // h, left -->
-        // case 72: case 37: navigateLeft(); break;
-			  72: shim('h', Reveal.navigateLeft),
-			  37: shim('h', Reveal.navigateLeft),
+        72: shim('h', Reveal.navigateLeft),
+        37: shim('h', Reveal.navigateLeft),
         // l, right
         76: shim('l', Reveal.navigateRight),
         39: shim('l', Reveal.navigateRight),
@@ -62,21 +59,21 @@ Reveal.initialize({
         70: shim('f', Reveal.enterFullScreen),
     },
 
-		theme: Reveal.getQueryHash().theme,
-		transition: Reveal.getQueryHash().transition || 'default',
+    theme: Reveal.getQueryHash().theme,
+    transition: Reveal.getQueryHash().transition || 'default',
 
-		dependencies: [
-				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-		]
+    dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
 });
 
 function log(m) {
-		console.log(m);
+    console.log(m);
 }
 
 
